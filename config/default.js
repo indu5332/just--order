@@ -10,5 +10,5 @@ module.exports={
     "allowedOrigins": ["*"],
     "secret": "Pings:TakingYourExperienceToANewLevel.",
     "imagePath": path.join(__dirname,'../api/uploads/'),
-    "fileUrl":"https://just-server-app.herokuapp.com/"
+    "fileUrl":"http://192.168.0.163:3000"
 }
