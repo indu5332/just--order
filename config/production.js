@@ -9,7 +9,7 @@ module.exports={
     "allowedOrigins": ["https://just-server-app.herokuapp.com/"],
     "secret": "Pings:TakingYourExperienceToANewLevel.",
     "imagePath": path.join(__dirname,'../api/uploads/'),
-    "fileUrl":"https://just-server-app.herokuapp.com/api/uploads/"
+    "fileUrl":"https://just-server-app.herokuapp.com/imagePath"
 }
 /*module.exports = {
     NODE_ENV: process.env.NODE_ENV,
