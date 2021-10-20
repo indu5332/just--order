@@ -46,7 +46,7 @@ let addRestaurant=async(req,res,next) => {
         const addRes=await resetaurantSchema.create(data);
         if(addRes){
             return res.status(200).json({ 
-                success: true,message:"Restaurant added successfully"
+                success: true,message:"Restaurant added successfully",resturant:addRes
             });
         }
         else {
