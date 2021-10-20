@@ -7,16 +7,16 @@ const mongoose = require('mongoose');
 let findAllRestaurants = async (req, res, next) => {
     try {
         
-        let allItems = await resetaurantSchema.find({});
+        let allresturants = await resetaurantSchema.find({});
         if (allItems.length > 0) {
-            await Promise.all(allItems.map(async item => {
-                item.imagePath = config.fileUrl + '/' + item.image
+            await Promise.all(allItems.map(async resturant => {
+                resturant.image = config.fileUrl + '/' + resturant.image
             }));
         }
         return res.status(200).json({
             success: true,
             message: 'Restaurant list',
-            restaurants: allItems
+            restaurants: allresturants
         });
 
     } catch (error) {

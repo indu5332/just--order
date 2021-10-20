@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const reviewSchema=require('../../../models/review');
+const reviewSchema=require('../../models/review');
 
 let deletereview =async(req, res, next)=>{
     try {

@@ -5,7 +5,8 @@ let AutoIncrement = require('mongoose-sequence')(mongoose);
 let reviewSchema=new Schema({
     id:{type:Number},
     user: { type: Schema.Types.ObjectId, required: true, ref: 'authorization' },
-    hotelId:{type:Schema.Types.ObjectId,required:true,ref:'hotel'},
+    hotelId:{type:Schema.Types.ObjectId,ref:'hotel'},
+    resturantId:{type:Schema.Types.ObjectId,ref:'resturant'},
     review: { type: String },
     ratings: { type: Number },
     Date: { type: Date },

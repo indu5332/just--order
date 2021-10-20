@@ -1,4 +1,4 @@
-const reviewSchema=require('../../../models/review');
+const reviewSchema=require('../../models/review');
 
 let addreview=async(req,res,next)=>{
     try {
