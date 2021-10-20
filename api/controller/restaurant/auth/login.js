@@ -7,7 +7,7 @@ let login = async(req, res, next) => {
     hotelModel.findOne({
         email: req.body.email
     }, (err, user) => {
-        console.log(err);
+       // console.log(err);
         console.log(user);
         if (err) {
             return res.json({ success: false, isError: true, error: err });
@@ -16,6 +16,7 @@ let login = async(req, res, next) => {
         } else if (user) {
             req.data = {};
             req.data.user = JSON.parse(JSON.stringify(user));
+            //console.log(user)
             next();
         }
     });

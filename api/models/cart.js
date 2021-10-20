@@ -4,7 +4,6 @@ let AutoIncrement = require('mongoose-sequence')(mongoose);
 
 const cartSchema = new Schema(
   {
-    user: { type: Schema.Types.ObjectId, ref: 'authorization', required: true },
     resturantId: { type: Schema.Types.ObjectId, ref: 'resturant', required: true },
     userId: { type: Schema.Types.ObjectId, ref: 'user', required: true },
     price: { type: Number },

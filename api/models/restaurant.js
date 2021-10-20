@@ -4,6 +4,7 @@ let AutoIncrement = require('mongoose-sequence')(mongoose);
 
 const restaurantSchema=new Schema({
     id:{type:Number},
+    //isAdmin:{type:Boolean,default:false},
     name:{type:String},
     description:{type:String},
     image:{type:String,default:'default.jpg'},

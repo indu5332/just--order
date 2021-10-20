@@ -4,7 +4,7 @@ let addcart =async(req, res, next)=>{
     try {
         const cart={
             ...req.body,
-            restaurantId:req.decoded._id
+            userId:req.decoded._id
         }
         const addcart = await cartSchema.create(cart);
         if(addcart){

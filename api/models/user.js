@@ -4,6 +4,7 @@ let AutoIncrement = require('mongoose-sequence')(mongoose);
 
 let userSchema = new Schema({
     id: { type: Number },
+    isAdmin:{type:Boolean,default:false},
     password: { type: String },
     firstName: { type: String},
     lastName:{type:String},
