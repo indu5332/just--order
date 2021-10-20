@@ -9,5 +9,5 @@ module.exports={
     "allowedOrigins": ["https://just-order-api.herokuapp.com/"],
     "secret": "Pings:TakingYourExperienceToANewLevel.",
     "imagePath": path.join(__dirname,'../api/uploads/'),
-    "fileUrl":"https://just-order-api.herokuapp.com/api/v1"
+    "fileUrl":"https://just-order-api.herokuapp.com"
 }
