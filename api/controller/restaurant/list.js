@@ -1,4 +1,4 @@
-const resetaurantSchema = require('../../models/restaurant');
+const restaurantSchema = require('../../models/restaurant');
 const config = require('config');
 const mongoose = require('mongoose');
 
@@ -7,11 +7,12 @@ const mongoose = require('mongoose');
 let findAllRestaurants = async (req, res, next) => {
     try {
         
-        let allresturants = await resetaurantSchema.find({});
-        if (allItems.length > 0) {
-            await Promise.all(allItems.map(async resturant => {
+        let allresturants = await restaurantSchema.find({});
+        if (allresturants.length > 0) {
+            await Promise.all(allresturants.map(async resturant => {
                 resturant.image = config.fileUrl + '/' + resturant.image
             }));
+            console.log(allresturants)
         }
         return res.status(200).json({
             success: true,
