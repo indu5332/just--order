@@ -1,10 +1,10 @@
-const reviewModel=require('../../../models/review');
+const reviewModel=require('../../models/review');
 const mongoose=require('mongoose');
 const config=require('config');
 
 let listreviews=async(req,res,next)=>{
     try {
-        const allreviews = await reviewModel.find({hotelId:mongoose.Types.ObjectId(req.params.hotelId)});
+        const allreviews = await reviewModel.find({restaurantId:mongoose.Types.ObjectId(req.params.restaurantId)});
         await Promise.all(allreviews.map(async review=>{
             review.image=config.fileUrl+"/"+review.image
             console.log(allreviews)
