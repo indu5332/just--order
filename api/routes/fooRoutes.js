@@ -19,12 +19,12 @@ var upload=multer({storage:storage});
 foodRoute.post('/file/upload',upload.single('file'),controller.file.upload);
 
 foodRoute.post('/category/add',controller.restaurant.category.add_category);
-foodRoute.get('/category/list',controller.restaurant.category.list_category);
+foodRoute.get('/category/list/:restaurantId',controller.restaurant.category.list_category);
 foodRoute.post('/category/update/:id',controller.restaurant.category.update_category);
 foodRoute.get('/category/remove/:id',controller.restaurant.category.delete_category);
 
 foodRoute.post('/menu/add',controller.restaurant.menu.add_menu);
-foodRoute.get('/menu/list',controller.restaurant.menu.list_menu);
+foodRoute.get('/menu/list/:restaurantId',controller.restaurant.menu.list_menu);
 foodRoute.post('/menu/remove',controller.restaurant.menu.remove_menu);
 foodRoute.post('/menu/update',controller.restaurant.menu.update_menu);
 foodRoute.post('/menu/option/pull',controller.restaurant.menu.option.pull_option);

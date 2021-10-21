@@ -4,7 +4,7 @@ const config=require('config')
 
 let listCategory=async(req,res,next)=>{
     try {
-        const allCategories = await categorySchema.find({restaurantId:mongoose.Types.ObjectId(req.decoded._id)});
+        const allCategories = await categorySchema.find({restaurantId:mongoose.Types.ObjectId(req.params.restaurantId)});
         await Promise.all(allCategories.map(async Category=>{
             Category.image=config.fileUrl+"/"+Category.image
             console.log(allCategories)

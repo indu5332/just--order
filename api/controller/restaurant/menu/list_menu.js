@@ -4,10 +4,11 @@ const mongoose=require('mongoose');
 
 let listMenu=async(req,res,next)=>{
     try {
+        console.log(req.decoded._id)
         let condition=[
             {
                 $match:{
-                    restaurantId:mongoose.Types.ObjectId(req.decoded._id)
+                    restaurantId:mongoose.Types.ObjectId(req.params.restaurantId)
                 }
             },
         ];
