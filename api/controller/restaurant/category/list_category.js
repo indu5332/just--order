@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 const categorySchema=require('../../../models/category');
+const config=resuire('config')
 
 let listCategory=async(req,res,next)=>{
     try {
