@@ -46,6 +46,8 @@ foodRoute.get('/coupon/remove/:couponId',controller.restaurant.coupon.remove_cou
 foodRoute.get('/coupon/list',controller.restaurant.coupon.list_coupon);
 
 foodRoute.post('/cart/add',controller.restaurant.cart.add_to_cart);
+foodRoute.get('/cart/list',controller.restaurant.cart.list_cart_items);
+foodRoute.get('/cart/detail',controller.restaurant.cart.detail_cart_item);
 
 foodRoute.get('/charges/list',controller.restaurant.charges.list_charge);
 foodRoute.post('/charges/add',controller.restaurant.profile.update_profile);
