@@ -18,7 +18,7 @@ appRoute.get("/view/hotels",controller.hotel.viewhotels);
 appRoute.use(controller.authentication);
 
 appRoute.post("/add/review",controller.review.add_review)
-appRoute.get("/list/review/:hotelId",controller.review.list_review)
+appRoute.get("/list/review",controller.review.list_review)
 //appRoute.get("/list/resturant/review/:resturantId",controller.restaurant.list_review)
 appRoute.get("/delete/review/:reviewId",controller.review.delete_review)
 
