@@ -4,14 +4,14 @@ const mongoose=require('mongoose');
 
 let listMenu=async(req,res,next)=>{
     try {
-        let conditions=[
+        let condition=[
             {
                 $match:{
                     restaurantId:mongoose.Types.ObjectId(req.decoded._id)
                 }
             },
         ];
-        let menus=await menuModel.aggregate(conditions);
+        let menus=await menuModel.aggregate(condition);
         return res.status(200).json({
             success:true,
             message:"Menu List",

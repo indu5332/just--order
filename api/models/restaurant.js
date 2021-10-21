@@ -13,6 +13,8 @@ const restaurantSchema=new Schema({
     code:{type:String},
     address:{type:String},
     region:{type:String},
+    ratings:{type:Number},
+    description:{type:String},
     email:{type:String},
     password:{type:String},
     collectStatus:{type:Boolean,default:true},
