@@ -19,7 +19,7 @@ appRoute.use(controller.authentication);
 
 appRoute.post("/add/review",controller.review.add_review)
 appRoute.get("/list/hotel/review/:hotelId",controller.review.list_review)
-appRoute.get("/list/resturant/review/:resturantId",controller.restaurant.list_review)
+//appRoute.get("/list/resturant/review/:resturantId",controller.restaurant.list_review)
 appRoute.get("/delete/review/:reviewId",controller.review.delete_review)
 
 //appRoute.post("/reset-password", controller.auth.resetpassword);
