@@ -4,7 +4,7 @@ const config=require('config');
 
 let listreviews=async(req,res,next)=>{
     try {
-        const allreviews = await reviewModel.find({_id:mongoose.Types.ObjectId(req.body._id)});
+        const allreviews = await reviewModel.find({modelid:mongoose.Types.ObjectId(req.params.modelid)});
         await Promise.all(allreviews.map(async review=>{
             review.image=config.fileUrl+"/"+review.image
             console.log(allreviews)
