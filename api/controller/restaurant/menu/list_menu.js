@@ -13,6 +13,10 @@ let listMenu=async(req,res,next)=>{
             },
         ];
         let menus=await menuModel.aggregate(condition);
+        await Promise.all(menus.map(async menu=>{
+            menu.imageUrl=config.fileUrl+"/"+menu.imageUrl
+            console.log(menus)
+        }))
         return res.status(200).json({
             success:true,
             message:"Menu List",

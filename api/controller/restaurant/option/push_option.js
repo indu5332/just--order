@@ -4,7 +4,6 @@ const mongoose=require('mongoose');
 
 
 let addMenu=async(req,res,next)=>{
-    console.log("here");
         let conditions={
             restaurantId:mongoose.Types.ObjectId(req.decoded._id),            
             _id:mongoose.Types.ObjectId(req.body.optionId)            
@@ -22,7 +21,8 @@ let addMenu=async(req,res,next)=>{
         }
         try {
             let updateRes=await restaurantModel.updateOne(conditions,dataToUpdate);
-            if(updateRes.nModified==1){
+            console.log(updateRes)
+            if(updateRes.modifiedCount==1){
                 return res.status(200).json({
                     success:true,
                     message:"option added successfully",
