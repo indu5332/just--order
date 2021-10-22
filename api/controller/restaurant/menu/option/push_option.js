@@ -1,11 +1,9 @@
 const menuModel=require('../../../../models/menu');
 const mongoose=require('mongoose');
 
-
 let pushOptionToMenu=async(req,res,next)=>{
     let options=[];
-    console.log(mongoose.Types.ObjectId(_id))
-    JSON.parse(req.body.options).map(id=>options.push({optionId:mongoose.Types.ObjectId(id)}))
+    JSON.parse(req.body.options).map(item=>options.push({optionId:mongoose.Types.ObjectId(item)}))
     try {
         const condition ={
             _id:mongoose.Types.ObjectId(req.body.menuId),
@@ -35,7 +33,6 @@ let pushOptionToMenu=async(req,res,next)=>{
         return res.status(500).json({message: error.message,success: false});
     }
 }
-
 
 module.exports=[
     pushOptionToMenu

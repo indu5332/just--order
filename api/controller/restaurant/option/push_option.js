@@ -5,7 +5,7 @@ const mongoose=require('mongoose');
 
 let addMenu=async(req,res,next)=>{
         let conditions={
-            restaurantId:mongoose.Types.ObjectId(req.decoded._id),            
+            //restaurantId:mongoose.Types.ObjectId(req.decoded._id),            
             _id:mongoose.Types.ObjectId(req.body.optionId)            
         }   
         let dataToUpdate={

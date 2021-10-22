@@ -6,14 +6,10 @@ const cartSchema = new Schema(
   {
     resturantId: { type: Schema.Types.ObjectId, ref: 'resturant', required: true },
     userId: { type: Schema.Types.ObjectId, ref: 'user', required: true },
+    menuId:{type:Schema.Types.ObjectId,ref:'menu',required:true},
+    name:{type:String},
     price: { type: Number },
     quantity: { type: Number },
-    shippingAddress: {
-      city: { type: String },
-      country: { type: String },
-      address: { type: String },
-      zipcode: { type: String },
-    },
   },
   { timestamps: true },
 );

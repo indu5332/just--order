@@ -10,5 +10,6 @@ module.exports={
     "allowedOrigins": ["http://192.168.0.163:3000"],
     "secret": "Pings:TakingYourExperienceToANewLevel.",
     "imagePath": path.join(__dirname,'../api/uploads/'),
-    "fileUrl":"http://192.168.0.163:3000"
+    "fileUrl":"http://192.168.0.163:3000",
+    "STRIPE_SK":"sk_test_51JnHK2SHnHscHf9HeaQgpApblm7ezQlPlRwGPTmiLSmC3R22QjL9ZugI5EwTpzqKT1HrpNOzBjtg5C2StoMmnqZD00Rg98kHWe"
 }

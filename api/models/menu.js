@@ -4,7 +4,7 @@ let AutoIncrement = require('mongoose-sequence')(mongoose);
 
 let menuSchema = new Schema({
     id: { type: Number },
-    name:{type:String},
+    menuName:{type:String},
     restaurantId: { type: Schema.Types.ObjectId },
     categoryId: { type: Schema.Types.ObjectId },
     menuNo: { type: Number },
