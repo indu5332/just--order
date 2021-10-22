@@ -47,7 +47,10 @@ foodRoute.get('/coupon/list',controller.restaurant.coupon.list_coupon);
 
 foodRoute.post('/cart/add',controller.restaurant.cart.add_to_cart);
 foodRoute.get('/cart/list',controller.restaurant.cart.list_cart_items);
-foodRoute.get('/cart/detail',controller.restaurant.cart.detail_cart_item);
+foodRoute.get('/cart/detail/:cartId',controller.restaurant.cart.detail_cart_item);
+foodRoute.get('/cart/delete/:cartId',controller.restaurant.cart.delete_cart_item);
+foodRoute.get('/cart/empty',controller.restaurant.cart.empty_cart);
+foodRoute.post('/cart/update/:cartId',controller.restaurant.cart.update_cart_item);
 
 foodRoute.get('/charges/list',controller.restaurant.charges.list_charge);
 foodRoute.post('/charges/add',controller.restaurant.profile.update_profile);

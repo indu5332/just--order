@@ -1,6 +1,5 @@
 const cartModel=require('../../../models/cart');
 const mongoose=require('mongoose');
-const config=require('config');
 
 let listcarts=async(req,res,next)=>{
     try {

@@ -2,7 +2,6 @@ let cartsModel=require('../../../models/cart');
 let mongoose=require('mongoose');
 
 let getcartDetail = (req, res,next) => {   
-    console.log(req.params.cartId);
     cartsModel.findById(
         {_id:req.params.cartId},
         (err, cartDetail) => {
@@ -12,8 +11,7 @@ let getcartDetail = (req, res,next) => {
             } else {              
                 if (cartDetail!=null) { 
                     console.log(cartDetail);                  
-                    req.data.carts=JSON.parse(JSON.stringify(cartDetail));
-                    next();
+                    return res.json({ success: true, cartDetail:cartDetail });
                 } else {
                     return res.json({ success: false, message: "No cart exists for the given cart Id." });
                 }

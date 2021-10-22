@@ -18,7 +18,7 @@ let pushOptionToMenu=async(req,res,next)=>{
             }
         }
         const updateRes=await menuModel.updateOne(condition,dataToUpdate);
-        if(updateRes.nModified>0){
+        if(updateRes.modifiedCount>0){
             return res.status(200).json({
                 success: true,
                 message:"Option added successfully"
