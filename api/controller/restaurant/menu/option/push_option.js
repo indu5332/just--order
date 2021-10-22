@@ -3,7 +3,7 @@ const mongoose=require('mongoose');
 
 let pushOptionToMenu=async(req,res,next)=>{
     let options=[];
-    JSON.parse(req.body.options).map(item=>options.push({optionId:mongoose.Types.ObjectId(item)}))
+    (req.body.options).map(id=>options.push({optionId:mongoose.Types.ObjectId(id)}))
     try {
         const condition ={
             _id:mongoose.Types.ObjectId(req.body.menuId),

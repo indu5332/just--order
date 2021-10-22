@@ -7,7 +7,7 @@ let optionSchema=new Schema({
     heading:{type:String},
     multiple:{type:Boolean,default:false},
     option:[
-        {
+        {   
             name:{type:String},
             description:{type:String},
             price: { type: Number },
