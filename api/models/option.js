@@ -6,13 +6,14 @@ let optionSchema=new Schema({
     id:{type:Number},
     heading:{type:String},
     multiple:{type:Boolean,default:false},
-    option:[
+    options:[
         {   
+            isSize:{type:Boolean,default:false},
             name:{type:String},
-            description:{type:String},
-            price: { type: Number },
-            optionNumber: { type: Number},
-            otherLangTitle: { type: String },
+            price:{type:Number},
+            ingrediants:{type:String},
+            optionNumber: { type: Number},  
+            type:{type:String}
         }
     ]
 },{timestamps:true});

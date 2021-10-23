@@ -10,10 +10,7 @@ let menuSchema = new Schema({
     menuNo: { type: Number },
     description: { type: String },
     imageUrl: { type: String },
-    isSize: { type: Boolean, default: false },
-    discount: { type: Number },
     otherLangTitle: { type: String },
-    price: { type: Number },
     repeat: { type: Number, default: 1 },
     title: { type: String },
     options:[

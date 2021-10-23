@@ -11,11 +11,12 @@ let addMenu=async(req,res,next)=>{
         let dataToUpdate={
             $push:{
                 "opt":{
-                    "description":req.body.description,
-                    "optionNumber":req.body.optionNumber,
+                    "ingrediants":req.body.description,
+                    "detailNumber":req.body.detailNumber,
                     "price":req.body.price,
-                    "otherLangTitle":req.body.otherLangTitle,
-                    "name":req.body.name
+                    "name":req.body.name,
+                    "isSize":req.body.isSize,
+                    "type:":req.body.type
                 }
             }
         }

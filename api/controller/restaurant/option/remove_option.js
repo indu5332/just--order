@@ -1,4 +1,4 @@
-const restaurantModel=require('../../../models/menu_option');
+const restaurantModel=require('../../../models//menu_option');
 const mongoose=require('mongoose');
 
 
@@ -9,14 +9,14 @@ let removeMenu=async(req,res,next)=>{
             if(updateRes.deletedCount>0){
                 return res.status(200).json({
                     success:true,
-                    message:"option removed successfully",
+                    message:"detail removed successfully",
                     updateRes:updateRes
                 })
             }
             else {
                 return res.status(500).json({
                     success:false,
-                    message:"fail to remove option",
+                    message:"fail to remove detail",
                     updateRes:updateRes
                 })
             }

@@ -38,8 +38,9 @@ foodRoute.get('/size/list/:menuId',controller.restaurant.size.list_size);
 foodRoute.get('/option/list',controller.restaurant.option.list_option);
 foodRoute.post('/option/add',controller.restaurant.option.add_option);
 foodRoute.post('/option/remove',controller.restaurant.option.remove_option);
-foodRoute.post('/option/push',controller.restaurant.option.push_option);
-foodRoute.post('/options/pull',controller.restaurant.option.pull_options);
+//foodRoute.post('/option/push',controller.restaurant.option.push_option);
+//foodRoute.post('/options/pull',controller.restaurant.option.pull_option);
+
 
 foodRoute.post('/coupon/add',controller.restaurant.coupon.add_coupon);
 foodRoute.get('/coupon/remove/:couponId',controller.restaurant.coupon.remove_coupon);
