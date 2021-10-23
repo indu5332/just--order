@@ -1,9 +1,9 @@
-const restaurantModel=require('../../../models/menu_option');
+const optionModel=require('../../../models/option');
 const mongoose=require('mongoose');
 
 let addMenu=async(req,res,next)=>{
         try {
-            let updateRes=await restaurantModel.create({...req.body,restaurantId:req.decoded._id});
+            let updateRes=await optionModel.create({...req.body,restaurantId:req.decoded._id});
             if(updateRes){
                 return res.status(200).json({
                     success:true,
@@ -12,6 +12,7 @@ let addMenu=async(req,res,next)=>{
                 })
             }
             else {
+                console.log("fail")
                 return res.status(500).json({
                     success:false,
                     message:"fail to add option",

@@ -1,38 +1,29 @@
-const orderModel = require("../../../models/order");
-const cartModel=require('../../../models/cart')
-const stripe=require('stripe')
-const mongoose=require('mongoose')
-const paymentService = require("./payment");
+const orderSchema=require('../../../models/order');
 
-const createorder = async (req, res, next) => {
-  try{
-    let totalAmount = 0.0;
-    const myCartItems = await this.cartModel.find({userId:mongoose.Types.ObjectId(req.decoded._id)});
-    myCartItems.forEach(item => {
-      totalAmount += Number(item.price) * Number(item.quantity);
-    });
-    const paymentDetail = await this.paymentService.createorder(
-      Number((totalAmount * 100).toFixed(2)),
-      data.id,
-    );
-    if (paymentDetail) {
-      const newDetail = await orderModel.create({
-        items: myCartItems,
-        transactionDetail: paymentDetail,
-        shippingAddress: data.shippingAddress,
-        total: totalAmount,
-        orderNumber: this.generateOrderNumber(),
-        user: mongoose.Types.ObjectId(req.decoded._id),
-      });
-      console.log(newDetail)
+let addorder =async(req, res, next)=>{
+    try {
+        const order={
+            ...req.body,
+            userId:req.decoded._id
+        }
+        const addorder = await orderSchema.create(order);
+        console.log(addorder)
+        if(addorder){
+            return res.status(200).json({
+                success: true,message: 'Added order',
+                order: addorder
+            })
+        }
+        else {
+          console.log("fail")
+            return res.status(500).json({message: 'Fail to add order',success: false})
+        }
+    } catch (error) {
+      console.log(error)
+        return res.status(500).json({message: error.message,success: false});
     }
-  } catch (error) {
-    console.log("error", error);
-    return res.status(500).json({ success: false, isError: true, error: error.message });
-  }
-};
+}
 
-
-module.exports = [
-  createorder
-];
+module.exports =[
+    addorder,
+]

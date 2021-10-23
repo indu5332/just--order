@@ -35,11 +35,11 @@ foodRoute.post('/size/add',controller.restaurant.size.add_size);
 foodRoute.post('/size/remove',controller.restaurant.size.remove_size);
 foodRoute.get('/size/list/:menuId',controller.restaurant.size.list_size);
 
-foodRoute.get('/option/list',controller.restaurant.option.list_option);
+foodRoute.get('/option/list/:menuId',controller.restaurant.option.detail_option);
 foodRoute.post('/option/add',controller.restaurant.option.add_option);
 foodRoute.post('/option/remove',controller.restaurant.option.remove_option);
-//foodRoute.post('/option/push',controller.restaurant.option.push_option);
-//foodRoute.post('/options/pull',controller.restaurant.option.pull_option);
+foodRoute.post('/option/push',controller.restaurant.option.push_option);
+foodRoute.post('/options/pull',controller.restaurant.option.pull_option);
 
 
 foodRoute.post('/coupon/add',controller.restaurant.coupon.add_coupon);
@@ -49,9 +49,13 @@ foodRoute.get('/coupon/list',controller.restaurant.coupon.list_coupon);
 foodRoute.post('/cart/add',controller.restaurant.cart.add_to_cart);
 foodRoute.get('/cart/list',controller.restaurant.cart.list_cart_items);
 foodRoute.get('/cart/detail/:cartId',controller.restaurant.cart.detail_cart_item);
-foodRoute.get('/cart/delete/:cartId',controller.restaurant.cart.delete_cart_item);
-foodRoute.get('/cart/empty',controller.restaurant.cart.empty_cart);
+foodRoute.delete('/cart/delete/:cartId',controller.restaurant.cart.delete_cart_item);
+foodRoute.delete('/cart/empty',controller.restaurant.cart.empty_cart);
 foodRoute.post('/cart/update/:cartId',controller.restaurant.cart.update_cart_item);
+
+foodRoute.post('/order/add',controller.restaurant.order.add_order);
+foodRoute.get('/order/detail/:orderId',controller.restaurant.order.detail_order);
+foodRoute.get('/order/list',controller.restaurant.order.list_order);
 
 foodRoute.get('/charges/list',controller.restaurant.charges.list_charge);
 foodRoute.post('/charges/add',controller.restaurant.profile.update_profile);

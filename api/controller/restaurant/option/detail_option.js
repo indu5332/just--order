@@ -1,24 +1,23 @@
-const orderModel=require('../../../models/order');
+const optionModel=require('../../../models/option');
 const mongoose=require('mongoose');
-const config=require('config')
 
 
-let listorder=async(req,res,next)=>{
+let listoption=async(req,res,next)=>{
     try {
-        console.log(req.decoded._id)
         let condition=[
             {
                 $match:{
-                    userId:mongoose.Types.ObjectId(req.decoded._id)
+                    menuId:mongoose.Types.ObjectId(req.params.menuId)
                 }
             },
         ];
-        let orders=await orderModel.aggregate(condition);
-        console.log(orders)
+        console.log(mongoose.Types.ObjectId(req.params.menuId))
+        let options=await optionModel.aggregate(condition);
+        console.log(options)
         return res.status(200).json({
             success:true,
-            message:"order List",
-            orders:orders
+            message:"option List",
+            options:options
         })
     } catch (error) {
         console.log(error)
@@ -31,5 +30,5 @@ let listorder=async(req,res,next)=>{
 }
 
 module.exports=[
-    listorder
+    listoption
 ]

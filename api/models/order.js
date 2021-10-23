@@ -5,12 +5,13 @@ let AutoIncrement = require('mongoose-sequence')(mongoose);
 let orderSchema=new Schema({
     id:{type:Number},
     restaurantId:{type:Schema.Types.ObjectId,ref:'restaurant'},
-    user: {type: Schema.Types.ObjectId,ref: 'authorization',required: true},
-    status:{type:Boolean,degault:true},
+    menuId:{type:Schema.Types.ObjectId,ref:'menu'},
+    userId: {type: Schema.Types.ObjectId,ref: 'authorization',required: true},
+    status:{type:Boolean,default:true},
     orderNumber:{type:Number},
     price:{type:Number},
     quantity:{type:Number,default:1},
-    transaction_details:{},
+    transiction_details:{},
     shipping_address:{}
 },{timestamps:true});
   

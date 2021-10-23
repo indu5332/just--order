@@ -1,27 +1,36 @@
-const cartModel = require('../../../models/cart');
-const mongoose = require('mongoose');
+const cartModel=require('../../../models/cart');
+const mongoose=require('mongoose');
 
 
-let deletecart = (req, res, next) => {
-    let condition = {
-        _id:mongoose.Types.ObjectId(req.params.cartId)
-    }
-    cartModel.deleteOne(condition, (error, carts) => {
-        if (error) {
-            return res.json({
-                success: false,
-                isError: true,
-                error: error
-            });
-        }
-        else {
-            return res.json({
-                success: true,
-                message: "carts deleted successfully",
-                carts: carts
+
+let removecartItem=async(req,res,next)=>{
+        try {
+            let updateRes=await cartModel.deleteOne({_id:mongoose.Types.ObjectId(req.params.cartId)});
+            if(updateRes.deletedCount>0){
+                return res.status(200).json({
+                    success:true,
+                    message:"detail removed successfully",
+                    updateRes:updateRes
+                })
+            }
+            else {
+                return res.status(500).json({
+                    success:false,
+                    message:"fail to remove detail",
+                    updateRes:updateRes
+                })
+            }
+        } catch (error) {
+            console.log(error);
+            return res.status(500).json({
+                success:false,
+                isError:true,
+                error:error
             })
         }
-    });
-};
+}
 
-module.exports = [deletecart];
+
+module.exports=[   
+    removecartItem
+]
