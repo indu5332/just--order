@@ -41,7 +41,6 @@ foodRoute.post('/option/remove',controller.restaurant.option.remove_option);
 foodRoute.post('/option/push',controller.restaurant.option.push_option);
 foodRoute.post('/options/pull',controller.restaurant.option.pull_option);
 
-
 foodRoute.post('/coupon/add',controller.restaurant.coupon.add_coupon);
 foodRoute.get('/coupon/remove/:couponId',controller.restaurant.coupon.remove_coupon);
 foodRoute.get('/coupon/list',controller.restaurant.coupon.list_coupon);
@@ -57,6 +56,8 @@ foodRoute.post('/order/add',controller.restaurant.order.add_order);
 foodRoute.get('/order/detail/:orderId',controller.restaurant.order.detail_order);
 foodRoute.get('/order/list',controller.restaurant.order.list_order);
 
+foodRoute.post('/payment/add',controller.restaurant.payment.payment_service);
+
 foodRoute.get('/charges/list',controller.restaurant.charges.list_charge);
 foodRoute.post('/charges/add',controller.restaurant.profile.update_profile);
 
@@ -67,5 +68,7 @@ foodRoute.post('/time/update/:timeId',controller.restaurant.time.update_time)
 
 foodRoute.get('/restaurant/info',controller.restaurant.profile.general_info);
 // foodRoute.post('/update/image',controller.file.upload_file_to_aws);
+
+foodRoute.post('/notification',controller.notification.create_notification);
 
 module.exports=foodRoute;

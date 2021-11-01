@@ -1,7 +1,6 @@
 const menuModel=require('../../../../models/menu');
 const mongoose=require('mongoose');
 
-
 let pullOptionFromMenu=async(req,res,next)=>{
     try {
         const condition ={

@@ -2,11 +2,13 @@ const express=require('express');
 var cors = require('cors');
 const app = express();
 
+
 const morgan = require('morgan');
 const routes=require("./api/routes/appRoute");
 const foodRoutes=require("./api/routes/fooRoutes");
 const userRoutes=require("./api/routes/user");
 const config = require('config'); 
+var io = require('socket.io');
 
 app.use(cors());
 // use body parser so we can get info from POST and/or URL parameters
@@ -19,14 +21,11 @@ app.use(`/api/${config.VERSION}`,foodRoutes)
 
 const PORT = process.env.PORT || 3000;
 // Serve Static files
- app.use(express.static(__dirname+"/api/uploads/"));
+app.use(express.static(__dirname+"/api/uploads/"));
 app.use(morgan('combined'));
 //app.listen(3000,'0.0.0.0',() => console.log(`Example app listening at ${config.HOST}:${PORT}/api/${config.VERSION}`));
 
-if (process.env.NODE_ENV === "production") {
-    console.log("Production Server running");
-    app.listen(PORT);
-  } else {
-    //console.log(`Development Server running on ${PORT}`);
+  //var listen = app.listen(PORT);
+    //var socket = io.listen(listen,console.log(socket));
+       //console.log(`Development Server running on ${PORT}`);
     app.listen(3000,'0.0.0.0',() => console.log(`Example app listening at ${config.DB_HOST}:${PORT}/api/${config.VERSION}`));
-  }

@@ -1,29 +1,33 @@
-const orderSchema=require('../../../models/order');
+//const orderSchema=require('../../../models/order');
+const paymentService=require('../payment/payment_service');
+const cartModel=require('../../../models/cart');
+const mongoose=require('mongoose');
 
-let addorder =async(req, res, next)=>{
+let processPayment =async(req, res, next)=>{
     try {
-        const order={
-            ...req.body,
-            userId:req.decoded._id
-        }
-        const addorder = await orderSchema.create(order);
-        console.log(addorder)
-        if(addorder){
+        totalAmount=0.0
+   /*   const allcarts = await cartModel.find({userId:mongoose.Types.ObjectId(req.decoded._id)});
+      allcarts.forEach(cartItem => {
+        totalAmount += Number(cartItem.price) * Number(cartItem.quantity)
+    });*/
+
+      const paymentDetail = await paymentService.process(
+        Number((totalAmount * 100).toFixed(2)),req.body.id);
+          if(paymentDetail){
             return res.status(200).json({
-                success: true,message: 'Added order',
-                order: addorder
+              success:true,
+              paymentDetail:paymentDetail
             })
-        }
-        else {
-          console.log("fail")
-            return res.status(500).json({message: 'Fail to add order',success: false})
-        }
+          }
+          else{
+            console.log("unsuccessful")
+          }
     } catch (error) {
       console.log(error)
-        return res.status(500).json({message: error.message,success: false});
+        return res.status(500).json({success: false,message: error.message});
     }
 }
 
 module.exports =[
-    addorder,
+    processPayment,
 ]

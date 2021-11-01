@@ -8,6 +8,7 @@ const cartSchema = new Schema(
     userId: { type: Schema.Types.ObjectId, ref: 'user', required: true },
     menuId:{type:Schema.Types.ObjectId,ref:'menu',required:true},
     name:{type:String},
+    isSize:{type:Boolean,default:false},
     price: { type: Number },
     quantity: { type: Number },
   },
