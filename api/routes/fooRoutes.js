@@ -69,6 +69,6 @@ foodRoute.post('/time/update/:timeId',controller.restaurant.time.update_time)
 foodRoute.get('/restaurant/info',controller.restaurant.profile.general_info);
 // foodRoute.post('/update/image',controller.file.upload_file_to_aws);
 
-foodRoute.post('/notification',controller.notification.create_notification);
+foodRoute.post('/notification/add',controller.notification.send_notification);
 
 module.exports=foodRoute;
