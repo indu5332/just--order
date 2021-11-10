@@ -2,7 +2,8 @@
   "name": "just-order",
   "version": "1.0.0",
   "engines": {
-    "node": "16.13.0"
+    "node": "16.13.0",
+    "npm": "1.4.29"
   },
   "description": "",
   "main": "index.js",

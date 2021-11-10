@@ -44,4 +44,4 @@ const PORT = process.env.PORT || 3000;
 // Serve Static files
 app.use(express.static(__dirname+"/api/uploads/"));
 app.use(morgan('combined'));
-server.listen(3000,'0.0.0.0',() => console.log(`Example app listening at ${config.DB_HOST}:${PORT}/api/${config.VERSION}`));
+server.listen(process.env.PORT || 3000,'0.0.0.0',() => console.log(`Example app listening at ${config.DB_HOST}:${PORT}/api/${config.VERSION}`));
