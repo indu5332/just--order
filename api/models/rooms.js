@@ -4,7 +4,7 @@ let AutoIncrement = require('mongoose-sequence')(mongoose);
 
 let roomSchema=new Schema({
     id: { type: Number },
-    hotel:{type:Schema.Types.ObjectId},  
+    hotelId:{type:Schema.Types.ObjectId},  
     single:{
         kid:{type:Number,default:0},
         adults:{type:Number,default:0},
