@@ -7,8 +7,13 @@ let createBooking=(req,res,next)=>{
         description:req.body.description,
         checkin:req.body.checkin,
         checkout:req.body.checkout,
-        hotelId:mongoose.Types.ObjectId(req.decoded._id),
+        hotelid:mongoose.Types.ObjectId(req.decoded._id),
         roomtype:req.body.roomtype,
+        quantity:req.body.quantity,
+        adults:req.body.adults,
+        children:req.body.children,
+        discount:req.body.discount,
+        charges:req.body.charges,
         created:Date.now(),
         updated:Date.now()
     };

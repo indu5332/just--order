@@ -11,7 +11,7 @@ let serviceSchema=new Schema({
     newprice:{type:Number},
     kids:{type:Number},
     adults:{type:Number},
-    hotelid:{type:Schema.Types.ObjectId,ref:'hotel'},
+    hotelId:{type:Schema.Types.ObjectId,ref:'hotel'},
 },{timestamps:true});
 
 serviceSchema.plugin(AutoIncrement, { inc_field: 'id', id: "serviceid" });

@@ -10,6 +10,11 @@ let bookingSchema=new Schema({
     checkout:{type:String},
     hotelid:{type:Schema.Types.ObjectId,ref:'hotel'},
     roomtype:{type:String},
+    quantity:{type:Number},
+    adults:{type:Number},
+    children:{type:Number},
+    discount:{type:Number},
+    charges:{type:Number},
     serviceId:{type:Schema.Types.ObjectId,ref:'service'},
    
 },{timestamps:true});
