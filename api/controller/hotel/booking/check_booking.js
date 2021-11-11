@@ -80,8 +80,6 @@ let findBooking=(req,res,next)=>{
     });
 }
 
-
-
 module.exports=[
     findBooking
 ];
