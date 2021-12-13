@@ -6,7 +6,7 @@ let listreviews=async(req,res,next)=>{
     try {
         const allreviews = await reviewModel.find({modelid:mongoose.Types.ObjectId(req.params.modelid)});
         await Promise.all(allreviews.map(async review=>{
-            review.image=config.fileUrl+"/"+review.image
+            review.image=config.fileUrl+"/review/"+review.image
             console.log(allreviews)
         }))
         return res.status(200).json({

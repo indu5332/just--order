@@ -2,11 +2,10 @@ const bookingModel = require('../../../models/booking');
 
 let updateBooking = (req, res, next) => {
     bookingModel.updateOne({
-        'hotelId': req.decoded._id,
+        'userId': req.decoded._id,
         '_id': req.params.bookingId
-    }, { $set: req.body }, (error, result) => {
+        }, { $set: req.body }, (error, result) => {
         if (error) {
-            
             return res.json({
                 success: false,
                 isError: true,
@@ -15,7 +14,7 @@ let updateBooking = (req, res, next) => {
         }
         else {
             console.log(result);
-            if (result.nModified == 1) {
+            if (result.modifiedCount == 1) {
                 next();
             }
             else {
@@ -31,8 +30,8 @@ let updateBooking = (req, res, next) => {
 
 let updateTime = (req, res, next) => {
 
-    bookingModel.update({
-        'hotelId': req.decoded._id,
+    bookingModel.updateOne({
+        'userId': req.decoded._id,
         '_id': req.params.bookingId
     }, { $set: { updated: Date.now() } }, (error, result) => {
         if (error) {
@@ -44,7 +43,7 @@ let updateTime = (req, res, next) => {
         }
         else {
             console.log(result);
-            if (result.nModified == 1) {
+            if (result.modifiedCount == 1) {
                 return res.json({
                     success: true,
                     message: "Booking updated successfully"

@@ -10,7 +10,7 @@ let updateProfile=async(req,res,next)=>{
             $set:req.body
         }
        let updateRes=await restaurantModel.updateOne(conditions,dataToUpdate);
-       if(updateRes.nModified==1){
+       if(updateRes.modifiedCount===1){
            return res.status(200).json({
                success:true,
                message:"updated",

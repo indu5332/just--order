@@ -1,32 +1,23 @@
 const bookingModel=require('../../../models/booking');
-const mongoose=require('mongoose');
 
-let createBooking=(req,res,next)=>{  
-    let bookingPayload={
-        name:req.body.name,
-        description:req.body.description,
-        checkin:req.body.checkin,
-        checkout:req.body.checkout,
-        hotelid:mongoose.Types.ObjectId(req.decoded._id),
-        roomtype:req.body.roomtype,
-        quantity:req.body.quantity,
-        adults:req.body.adults,
-        children:req.body.children,
-        discount:req.body.discount,
-        charges:req.body.charges,
-        created:Date.now(),
-        updated:Date.now()
-    };
-    bookingModel.create(bookingPayload,(error,result)=>{
-        if(error){
-            return res.json({success:false,isError:true,error:error});
+let addBooking=async(req,res,next)=>{
+    try {
+        const BookingRes=await bookingModel.create({...req.body,userId:req.decoded._id});
+        if(BookingRes){
+            return res.status(200).json({
+                success:true,
+                message:"booking added successfully",
+                booking:BookingRes
+            })
         }
-        else{
-            return res.json({success:true,message:"Booking added successfully",booking:result});
-        }
-    });
-};
-
+    } catch (error) {
+        return res.status(500).json({
+            success:false,
+            isError:true,
+            message:error.message
+        })
+    }
+}
 module.exports=[
-    createBooking
-];
+    addBooking
+]

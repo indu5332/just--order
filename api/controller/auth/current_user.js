@@ -37,9 +37,6 @@ let findCurrentUser=async(req,res,next)=>{
     }
 }
 
-
-
-
 module.exports=[
     findCurrentUser
 ]

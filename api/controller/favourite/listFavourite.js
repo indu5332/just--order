@@ -1,23 +1,21 @@
-const optionModel=require('../../../models/option');
+const favouriteSchema=require('../../models/favourite');
 const mongoose=require('mongoose');
 
 
-let listoption=async(req,res,next)=>{
+let listFavourite=async(req,res,next)=>{
     try {
         let condition=[
             {
                 $match:{
-                    menuId:mongoose.Types.ObjectId(req.params.menuId)
+                    userId:mongoose.Types.ObjectId(req.decoded._id)
                 }
             },
         ];
-        console.log(mongoose.Types.ObjectId(req.params.menuId))
-        let options=await optionModel.aggregate(condition);
-        console.log(options)
+        let favourites=await favouriteSchema.aggregate(condition);
         return res.status(200).json({
             success:true,
-            message:"option List",
-            options:options
+            message:"favourite List",
+            favourites:favourites
         })
     } catch (error) {
         console.log(error)
@@ -30,5 +28,5 @@ let listoption=async(req,res,next)=>{
 }
 
 module.exports=[
-    listoption
+    listFavourite
 ]

@@ -10,7 +10,7 @@ let findAllRestaurants = async (req, res, next) => {
         let Allresturants = await restaurantSchema.find({});
         if (Allresturants.length > 0) {
             await Promise.all(Allresturants.map(async resturant => {
-                resturant.image = config.fileUrl + '/' + resturant.image
+                resturant.image = config.fileUrl + '/restaurant/' + resturant.image
             }));
             console.log(Allresturants)
         }

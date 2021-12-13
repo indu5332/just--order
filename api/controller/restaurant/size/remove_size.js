@@ -8,7 +8,7 @@ let addMenu=async(req,res,next)=>{
         }
         try {
             let updateRes=await restaurantModel.updateOne(conditions,dataToUpdate);
-            if(updateRes.nModified==1){
+            if(updateRes.modifiedCount==1){
                 return res.status(200).json({
                     success:true,
                     message:"size removed successfully",
@@ -32,8 +32,6 @@ let addMenu=async(req,res,next)=>{
         }
 }
 
-
 module.exports=[
-    
     addMenu
 ]

@@ -2,10 +2,10 @@ let hotelsModel=require('../../models/hotel');
 let roomModel=require('../../models/rooms');
 let mongoose=require('mongoose');
 
-let getHotelDetail = (req, res,next) => {   
+let getHotelDetail = (req, res,next) => {
     console.log(req.params.hotelId);
     req.data = {};
-    hotelsModel.findById(
+    hotelsModel.find(
         {_id:req.params.hotelId},
         (err, hotelDetail) => {
             if (err) {
@@ -21,7 +21,7 @@ let getHotelDetail = (req, res,next) => {
                 }
             }
         });
-};
+    };
 
 let getRoom=(req, res,next) => {
     roomModel.find(
@@ -40,6 +40,6 @@ let getRoom=(req, res,next) => {
                 }
             }
         });
-};
+    };
 
 module.exports =[getHotelDetail,getRoom];

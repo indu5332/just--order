@@ -1,44 +1,31 @@
 const mongoose = require("mongoose");
-const cartModel=require("../../../models/cart");
+const cartModel = require("../../../models/cart");
 
-
-let findcart =(request,response,next) => {
-        cartModel.find({userId:mongoose.Types.ObjectId(request.decoded._id)},(error,cart) => {
-        if (error) {
-            console.log(error);
-            return response.json({ success: false, isError: true, error: error });
-        }
-        else{
-            if (cart!=null) {
-                console.log(cart);                   
-                next();
-            } else {
-                return response.json({ success: false, message: "No cart exists for the given cart Id." });
-            }
-        }
-    });
+let updatecart = async (req, res, next) => {
+  try {
+    let updateRes = await cartModel.updateOne({_id:mongoose.Types.ObjectId(req.params.cartId),
+      "cartItems._id":mongoose.Types.ObjectId(req.body.cartItemsId)}, {
+      $set:{
+        "cartItems.$.quantity":req.body.quantity,
+      }
+    },{new:true});
+    if (updateRes) {
+      return res.status(200).json({
+        success: true,
+        message:"message",
+        updateRes:updateRes
+      });
+    } else {
+      return res.status(400).json({
+        success: false,
+        message: "can't update",
+        updateRes: updateRes,
+      });
+    }
+  } catch (error) {
+    console.log(error)
+    return res.status(500).json({ success: false, message: error.message });
+  }
 };
 
-let updatecart=(request,response,next)=>{
-     cartModel.updateOne({_id:mongoose.Types.ObjectId(request.params.cartId)},{$set:request.body},(error,cart) => {
-        if(error){
-            console.log(error);
-            console.log(cart);
-            return response.json({ success: false, isError: true, error: error });
-        }
-        else{//JSON.parse(request.body[request.params.type])
-            if(cart!=null){
-                console.log(cart);
-                return response.json({ success: true, message: "cart updated successfully", cart: cart });
-            }
-            else{
-                return response.json({ success: false, message: "No cart exists for the given cartId." });
-            }
-        }
-    });
-};
-
-module.exports=[
-    findcart,
-    updatecart
-];
+module.exports = [updatecart];

@@ -1,4 +1,4 @@
-const mongoose=require('mongoose');
+/*const mongoose=require('mongoose');
 const Schema=mongoose.Schema;
 let AutoIncrement = require('mongoose-sequence')(mongoose);
 
@@ -17,4 +17,4 @@ let menuoptionSchema=new Schema({
 },{timestamps:true})
 
 menuoptionSchema.plugin(AutoIncrement, { inc_field: 'id', id: "menuoptionId" });
-module.exports=mongoose.model('menuOption', menuoptionSchema);
+module.exports=mongoose.model('menuOption', menuoptionSchema);*/

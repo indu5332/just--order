@@ -1,33 +1,43 @@
 const bookingModel=require('../../../models/booking');
 const mongoose=require('mongoose');
-const jwt=require('jsonwebtoken');
-const config=require('config');
 
-let findBooking=(req,res,next)=>{
-console.log(req.decoded._id);
-    let conditions=[
-        {
-        "$match":{
-            hotelId:mongoose.Types.ObjectId(req.decoded._id)
-        },
-    },
-    {
-        $sort:{
-            "created": -1
-        }
-    }
-];
-    bookingModel.aggregate(conditions,(error,booking)=>{        
-        if(error){
-            return res.json({success:false,isError:true,error:error});
+
+let listBooking=async(req,res,next)=>{
+    try {
+        //console.log(req.decoded._id)
+        let condition=[
+            {
+                $match:{
+                    userId:mongoose.Types.ObjectId(req.decoded._id)
+                }
+            },
+        ];
+        let bookings=await bookingModel.aggregate(condition);
+        
+        if (bookings){
+            return res.status(200).json({
+                success:true,
+                message:"booking List",
+                bookings:bookings
+            })
         }
         else{
-            return res.json({success:true,message:"List of booking",booking:booking});
+            return res.status(404).json({
+                success:true,
+                message:"booking List",
+                bookings:bookings
+            })
         }
-    }); 
-    
+    } catch (error) {
+        console.log(error)
+        return res.status(500).json({
+            success:false,
+            isError:true,
+            error:error
+        })
+    }
 }
 
 module.exports=[
-    findBooking
-];
+    listBooking
+]

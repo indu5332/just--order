@@ -1,6 +1,6 @@
 const resetaurantSchema= require('../../models/restaurant');
-const jwt = require('jsonwebtoken'); // used to create, sign, and verify tokens
-const config = require('config'); // get our config file
+const jwt = require('jsonwebtoken'); 
+const config = require('config'); 
 const utility = require('../../utility/utility');
 
 let checkEmailExist=async(req,res,next)=>{

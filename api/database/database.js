@@ -11,7 +11,6 @@ mongoose.connect(config.DATABASE, {
    // useCreateIndex: true,   
 }); // connect to database
 
-
 //mongoose.set('useFindAndModify', false);
 // mongoose.set('debug', true);
 

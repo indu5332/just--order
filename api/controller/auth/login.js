@@ -46,11 +46,11 @@ let generateToken = (req, res) => {
     });
     
     delete req.data.user.password;
-    console.log(req.data.user)
     res.status(200).json({
         success: true,
         message: 'You are logged in successfully.',
-        token: token        
+        token: token   ,
+        user:req.data.user     
     });
 
 };

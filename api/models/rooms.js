@@ -4,31 +4,15 @@ let AutoIncrement = require('mongoose-sequence')(mongoose);
 
 let roomSchema=new Schema({
     id: { type: Number },
-    hotelId:{type:Schema.Types.ObjectId},  
-    single:{
+    hotelId:{type:Schema.Types.ObjectId}, 
+    type:
+        {
+        roomType:{type:String},
         kid:{type:Number,default:0},
         adults:{type:Number,default:0},
         image:{type:String,default:'default.png'},
         Price:{type:Number,default:400}
-    }, 
-    double:{
-        kid:{type:Number,default:0},
-        adults:{type:Number,default:0},
-        image:{type:String,default:'default.png'},
-        Price:{type:Number,default:500}
-    },
-    duplex:{
-        kid:{type:Number,default:0},
-        adults:{type:Number,default:0},
-        image:{type:String,default:'default.png'},
-        Price:{type:Number,default:600}
-    },
-    deluxe:{
-        kid:{type:Number,default:0},
-        adults:{type:Number,default:0},
-        image:{type:String,default:'default.png'},
-        Price:{type:Number,default:800}
-    },      
+       },
 },{timestamps:true});
 
 roomSchema.plugin(AutoIncrement, { inc_field: 'id', id: "roomId" });

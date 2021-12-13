@@ -2,7 +2,6 @@ const mongoose = require("mongoose");
 const hotelModel = require("../../models/hotel");
 const user = require("../../models/user");
 
-
 let findUser=(request,response,next) => {
     user.find({_id:mongoose.Types.ObjectId(request.decoded._id)},(err,user) => {
         if(err){ 

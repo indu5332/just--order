@@ -1,6 +1,6 @@
 const reviewSchema=require('../../models/review');
 
-let addreview=async(req,res,next)=>{
+let addreview=async(req,res)=>{
     try {
         const addreviewRes=await reviewSchema.create({...req.body,addedBy:req.decoded._id});
         if(addreviewRes){

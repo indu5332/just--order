@@ -4,19 +4,19 @@ let AutoIncrement = require('mongoose-sequence')(mongoose);
 
 let bookingSchema=new Schema({
     id: { type: Number },
-    name:{type:String},
-    description:{type:String},
     checkin:{type:String},
     checkout:{type:String},
-    hotelid:{type:Schema.Types.ObjectId,ref:'hotel'},
+    hotelId:{type:Schema.Types.ObjectId,ref:'hotel'},
     roomtype:{type:String},
+    roomPrice:{type:Number},
     quantity:{type:Number},
     adults:{type:Number},
+    status:{type:Boolean,default:false},
+    shipping:{},
     children:{type:Number},
     discount:{type:Number},
     charges:{type:Number},
-    serviceId:{type:Schema.Types.ObjectId,ref:'service'},
-   
+    userId:{type:Schema.Types.ObjectId,ref:'user'},
 },{timestamps:true});
 bookingSchema.plugin(AutoIncrement, { inc_field: 'id', id: "bookingId" });
 module.exports=mongoose.model('bookings', bookingSchema);

@@ -10,4 +10,4 @@ let updateRoom=(req, res,next) => {
     });
 };
 
-module.exports =updateRoom;
+module.exports = updateRoom;

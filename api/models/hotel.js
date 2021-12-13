@@ -30,7 +30,7 @@ let hotelSchema=new Schema({
        parking:{type:Boolean,default:true},
        balcony:{type:Boolean,default:true},
        bed:{type:Boolean,default:true},
-       breakfast:{type:Boolean,default:true},
+       breakfast:{type:Boolean,default:true}
    },
     addedBy:{type:mongoose.Types.ObjectId,ref:'user'},  
 },{timestamps:true});

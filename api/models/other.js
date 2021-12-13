@@ -8,6 +8,7 @@ let otherSchema=new Schema({
     otherItemId:{type:Schema.Types.ObjectId},
     city:{type:String},
     country:{type:String},
+    staus:{type:String},
     region:{type:String},
     code:{type:String},
     addedBy:{type:Schema.Types.ObjectId}

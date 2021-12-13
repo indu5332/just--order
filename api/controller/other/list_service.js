@@ -3,7 +3,7 @@ const mongoose=require('mongoose');
 
 let allService=async(req,res,next)=>{
     try {
-        const items=await otherSchema.find({addedBy:mongoose.Types.ObjectId(req.decoded._id)});
+        const items=await otherSchema.find({otherItemId:mongoose.Types.ObjectId(req.params.otherItemId)});
         return res.status(200).json({
             success:true,
             message:'All item list',
