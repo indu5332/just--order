@@ -3,6 +3,7 @@ const path = require('path');
 module.exports={
     "DATABASE":"mongodb+srv://justorder:justorder@cluster0.ff5ml.mongodb.net/justorder?retryWrites=true&w=majority",
     "tokenDuration": "90d",
+    "sgMail":process.env.sgMail,
     "DB_HOST":"https://just-order-api.herokuapp.com/",
     "VERSION":"v1",
     "hosts": ["https://just-order-api.herokuapp.com/","*"],
