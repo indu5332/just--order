@@ -10,7 +10,7 @@ function sendEmail(data) {
     to: data.receiver,
     from: "killingspirit5332@gmail.com",
     subject: "reset password",
-    templateId: "d-3a1855f16b96476fbce9d9f3aa76e4c0",
+    templateId: "d-53a4060c0bc04fcba8e2885cf3930516",
     dynamic_template_data: data.templateData,
   };
   sgMail.send(msg, (error, res) => {
